@@ -1,0 +1,108 @@
+version: '3.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+intents:
+- pizza_start
+- pizza_getsize
+- goodbye
+- greet
+- pizza_gettype
+- bot_challenge
+- get_pizza
+
+entities:
+- pizza_type
+- pizza_size
+- money
+
+slots:
+  pizza_type:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: pizza_type
+  pizza_size:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+  money:
+    type: text
+    mappings:
+    - type: from_entity
+      entity: money
+forms:
+  simple_pizza_form:
+    required_slots:
+      - pizza_type
+      - pizza_size
+  money_form:
+    required_slots:
+      - money    
+responses:
+  utter_greet:
+  - text: Hey, How may i assist you?
+  - text: Hey, How can i help you?
+  utter_goodbye:
+  - text: Bye
+  utter_thanks:
+  - text: thanks for buying pizza from us
+  utter_iamabot:
+  - text: I am a pizza bot and i can help you in ordering a pizza of your liking.
+  # utter_size:
+  # - text: 'what size of pizza do you want? '
+  #   # buttons:
+  #   # - title: Regular
+  #   #   payload: Regular
+  #   # - title: Medium
+  #   #   payload: Medium
+  #   # - title: Large
+  #   #   payload: Large
+
+  # utter_pizzatype:
+  # - text: 'which type of pizza do you want?'
+  #   # buttons:
+  #   # - title: hawaiian
+  #   #   payload: hawaiian
+  #   # - title: pepperoni
+  #   #   payload: pepperoni
+  #   # - title: mozzarella
+  #   #   payload: mozzarella
+  #   # - title: fungi
+  #   #   payload: fungi
+  #   # - title: onion
+  #   #   payload: onion
+  #   # - title: pan
+  #   #   payload: pan
+  #   # - title: veggie
+  #   #   payload: veggie
+  #   # - title: bbq
+  #   #   payload: bbq
+
+  utter_wait:
+  - text: please wait 10 minutes while  we ready your {pizza_type} pizza.
+  utter_submit:
+  - text: I will now order a pizza for you!
+  utter_pizza_slots:
+  - text: I will order a {pizza_size} {pizza_type} pizza.
+  utter_ask_pizza_size:
+  - text: What size would you like your pizza to be?
+  utter_ask_pizza_type:
+  - text: What kind of pizza would you like to buy?
+
+
+actions:
+# - utter_crust
+- utter_goodbye
+- utter_greet
+- utter_iamabot
+# - utter_pizzatype
+# - utter_size
+- utter_wait
+- validate_simple_pizza_form
+- utter_submit
+- utter_pizza_slots
+- utter_ask_pizza_size
+- utter_ask_pizza_type

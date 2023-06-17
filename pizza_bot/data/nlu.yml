@@ -1,0 +1,95 @@
+version: "3.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+- intent: agree
+  examples: |
+    - yes
+    - si
+    - agreed
+    - ok
+    - fine
+    - alright
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: pizza_start
+  examples: |
+    - im hungry
+    - can i buy a pizza
+    - can i have pizza
+    - i am hungry
+    - give me pizza
+    - im hungry
+    - i want pizza
+- intent: pizza_gettype
+  examples: |
+    - i want [hawaiian](pizza_type)
+    - can i have[pepperoni](pizza_type)
+    - is [mozzarella](pizza_type) available
+    - give me [onion](pizza_type)
+    - [pan](pizza_type)
+    - [veggie](pizza_type)
+    - [bbq](pizza_type)
+    - [onion](pizza_type)
+    - [fungi](pizza_type)
+    - [pepperoni](pizza_type)
+    - [mozzarella](pizza_type) 
+    - [onion](pizza_type)
+    
+# - intent: pizza_getcrust
+#   examples: |
+#     - i want [hand tossed](crust)
+#     - can i have[thin](crust)
+#     - may i have[cheese](crust)
+#     - is [extra cheese](crust) available
+#     - [cheese](crust)
+#     - [hand tossed](crust)
+#     - [thin](crust)
+#     - [cheese](crust)
+#     - [extra cheese](crust)
+    
+- intent: pizza_getsize
+  examples: |
+    - give me [regular](pizza_size)
+    - [medium](pizza_size)
+    - i want [large](pizza_size)
+    - a [large](pizza_size) pizza
+    - [regular](pizza_size)
+    - [large](pizza_size)
+
+- intent: get_pizza
+  examples: |
+    - is my pizza ready yet?
+    - when can i have my pizza?
+    - how long will it take?
+    - is the order ready?

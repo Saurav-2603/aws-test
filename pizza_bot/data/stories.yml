@@ -1,0 +1,79 @@
+version: "3.0"
+
+stories:
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: pizza_start
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - slot_was_set:
+    - requested_slot: large
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - slot_was_set:
+    - requested_slot: hawaiian
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_pizza_slots
+  - intent: agree
+  - action: utter_thanks
+
+# - story: interactive_story_2
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: pizza_start
+#     entities:
+#     - start: hungry
+#   - action: utter_pizzatype
+#   - intent: pizza_gettype
+#     entities:
+#     - pizzatype: pan
+#   - action: utter_wait
+#   - intent: get_pizza
+#   - action: utter_wait
+
+# - story: path_pizza_bot
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: bot_challenge
+#   - action: utter_iamabot
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: pizza_start
+  - action: simple_pizza_form
+  - active_loop: simple_pizza_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - slot_was_set:
+    - pizza_type: veggie
+  - slot_was_set:
+    - pizza_type: veggie
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: pizza_getsize
+    entities:
+    - pizza_size: large
+  - slot_was_set:
+    - pizza_size: large
+  - action: utter_submit
+  - action: utter_pizza_slots
+  - intent: agree
+  - action: utter_thanks
+
+- story: money story
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: money_form
